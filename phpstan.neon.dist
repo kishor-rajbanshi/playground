@@ -1,0 +1,21 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+    - phpstan-baseline.neon
+
+parameters:
+    level: max
+    paths:
+        - src
+        - config
+    tmpDir: build/phpstan
+    checkOctaneCompatibility: true
+
+    stubFiles:
+        - stubs/phpstan/SmsManager.stub
+        - stubs/phpstan/SmsProvider.stub
+
+    ignoreErrors:
+        -
+            message: '#Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''#'
+            identifier: larastan.noEnvCallsOutsideOfConfig
+            path: config/sms.php

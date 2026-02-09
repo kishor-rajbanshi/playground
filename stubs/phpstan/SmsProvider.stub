@@ -1,0 +1,5 @@
+<?php
+
+namespace KishorRajbanshi\Sms\Contracts;
+
+interface SmsProvider {}

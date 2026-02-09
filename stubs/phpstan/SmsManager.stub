@@ -1,0 +1,10 @@
+<?php
+
+namespace KishorRajbanshi\Sms;
+
+use KishorRajbanshi\Sms\Contracts\SmsProvider;
+
+/**
+ * @method SmsProvider driver(?string $driver = null)
+ */
+class SmsManager {}

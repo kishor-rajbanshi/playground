@@ -1,0 +1,101 @@
+{
+    "name": "kishor-rajbanshi/laravel-sms",
+    "description": "A modern, multi-provider SMS gateway package for Laravel.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "sms",
+        "notification"
+    ],
+    "authors": [
+        {
+            "name": "Kishor Rajbanshi",
+            "email": "kishorrajbanshi00@gmail.com",
+            "homepage": "https://kishor-rajbanshi.com.np",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/kishor-rajbanshi/laravel-sms",
+    "support": {
+        "issues": "https://github.com/kishor-rajbanshi/laravel-sms/issues",
+        "source": "https://github.com/kishor-rajbanshi/laravel-sms"
+    },
+    "require": {
+        "php": "^8.3",
+        "illuminate/contracts": "*",
+        "illuminate/support": "^13.2"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^3.7",
+        "larastan/larastan": "^3.9",
+        "laravel/pint": "^1.29",
+        "orchestra/testbench": "^11.0",
+        "pestphp/pest": "^4.4",
+        "pestphp/pest-plugin-laravel": "^4.1"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "KishorRajbanshi\\Sms\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KishorRajbanshi\\Sms\\Tests\\": "tests",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "KishorRajbanshi\\Sms\\SmsServiceProvider"
+            ],
+            "aliases": {
+                "Sms": "KishorRajbanshi\\Sms\\Facades\\Sms"
+            }
+        }
+    },
+    "scripts": {
+        "format": "pint",
+        "test": "pest",
+        "analyse": "phpstan analyse",
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve --ansi"
+        ],
+        "lint": [
+            "@php vendor/bin/pint --ansi",
+            "@php vendor/bin/phpstan analyse --verbose --ansi"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@php vendor/bin/testbench ide-helper:generate",
+            "@php vendor/bin/testbench ide-helper:meta"
+        ]
+    }
+}
