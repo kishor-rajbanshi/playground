@@ -1,0 +1,38 @@
+{
+    "name": "kishor-rajbanshi/php-crypt",
+    "description": "The PHP Encryptor and Decryptor",
+    "license": "MIT",
+    "homepage": "https://github.com/kishor-rajbanshi/php-crypt",
+    "keywords": [
+        "Encryptor",
+        "Decryptor"
+    ],
+    "support": {
+        "issues": "https://github.com/kishor-rajbanshi/php-crypt/issues",
+        "source": "https://github.com/kishor-rajbanshi/php-crypt"
+    },
+    "authors": [
+        {
+            "name": "Kishor Rajbanshi",
+            "email": "kishorrajbanshi00@gmail.com",
+            "homepage": "https://kishor-rajbanshi.com.np",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-openssl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "KishorRajbanshi\\Crypt\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
